@@ -1,0 +1,27 @@
+composer create-project laravel/laravel crud-app
+
+/*
+//edit 
+
+.env.example and .emv
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=multiAuthentication
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+*/
+//create database
+php artisan migrate
+
+//run website php artisan sarve
+php artisan sarve
+
+//login and rejister install laravel breeze pacage
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install blade
