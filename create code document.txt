@@ -25,3 +25,83 @@ php artisan sarve
 composer require laravel/breeze --dev
 
 php artisan breeze:install blade
+
+npm install
+
+npm run dev
+
+php artisan serve
+
+
+//edit data base run code is 
+
+php artisan migrate:refresh
+
+//create controller
+
+php artisan make:controller HomeController
+
+
+
+//url eka gahala admit ehema yanna bariwenna middleware dana widiha
+
+php artisan make:middleware Admin
+
+php artisan make:middleware Editor
+
+
+//mema middleware thila meya type karanna  and use use Illuminate\Support\Facades\Auth;
+
+        if(auth::user()->user_type != 'admin'){
+
+            return redirect('/');
+
+        }
+
+        //eg-
+
+        /*
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+------------------------------------------------------------------------------------
+use Illuminate\Support\Facades\Auth;
+----------------------------------------------------------------------------------------
+class Admin
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+
+--------------------------------------------------------------
+        if(auth::user()->user_type != 'admin'){
+
+            return redirect('/');
+
+        }
+
+----------------------------------------------------------------
+
+
+        return $next($request);
+    }
+}
+
+        */
+        \
+
+        //update code in bootstrap folder app.php
+
+
+    $middleware->alias([
+            'admin' => \App\Http\Middleware\Admin::class,
+            'editor' => \App\Http\Middleware\Editor::class,
+        ]);
